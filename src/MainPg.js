@@ -22,6 +22,8 @@ class MainPg extends Component {
                         <li key={book.id}>
                           <Book 
                             book={ book }
+                            moveShelf={ this.props.moveShelf }
+                            currentShelf="currentlyReading"
                           />
                         </li>
                       ))
@@ -40,6 +42,8 @@ class MainPg extends Component {
                         <li key={book.id}>
                           <Book 
                             book={ book }
+                            moveShelf={ this.props.moveShelf }
+                            currentShelf="wantToRead"
                           />
                         </li>
                       ))
@@ -58,6 +62,8 @@ class MainPg extends Component {
                         <li key={book.id}>
                           <Book 
                             book={ book }
+                            moveShelf={ this.props.moveShelf }
+                            currentShelf="read"
                           />
                         </li>
                       ))
