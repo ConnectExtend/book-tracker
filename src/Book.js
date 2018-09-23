@@ -10,7 +10,7 @@ class Book extends Component {
               {
                 width: 128,
                 height: 193,
-                backgroundImage: ''
+                backgroundImage: `url("${ this.props.book.imageLinks.thumbnail }')`
               }
             }
           >
@@ -20,13 +20,13 @@ class Book extends Component {
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>
-              <option value="read">Read</option>
+              <option value="read">Already Enjoyed</option>
               <option value="none">None</option>
             </select>
           </div>
         </div>
-        <div className="book-title"></div>
-        <div className="book-authors"></div>
+        <div className="book-title">{ this.props.book.title }</div>
+        <div className="book-authors">{ this.props.book.authors }</div>
       </div>
     );
   }

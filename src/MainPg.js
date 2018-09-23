@@ -3,6 +3,7 @@ import Book from './Book';
 
 class MainPg extends Component {
   render() {
+    console.log(this.props.books);
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -14,9 +15,17 @@ class MainPg extends Component {
               <h2 className="bookshelf-title">Currently Reading</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  <li>
-                    <Book />
-                  </li>
+                  {
+                    this.props.books
+                      .filter(book => book.shelf === "currentlyReading")
+                      .map(book => (
+                        <li key={book.id}>
+                          <Book 
+                            book={ book }
+                          />
+                        </li>
+                      ))
+                  }
                 </ol>
               </div>
             </div>
@@ -24,27 +33,43 @@ class MainPg extends Component {
               <h2 className="bookshelf-title">Want to Read</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  <li>
-                    <Book />
-                  </li>
+                  {
+                    this.props.books
+                      .filter(book => book.shelf === "wantToRead")
+                      .map(book => (
+                        <li key={book.id}>
+                          <Book 
+                            book={ book }
+                          />
+                        </li>
+                      ))
+                  }
                 </ol>
               </div>
             </div>
             <div className="bookshelf">
-              <h2 className="bookshelf-title">Read</h2>
+              <h2 className="bookshelf-title">Already Enjoyed</h2>
               <div className="bookshelf-books">
-                <ol className="books-grid">
-                  <li>
-                    <Book />
-                  </li>
+              <ol className="books-grid">
+                  {
+                    this.props.books
+                      .filter(book => book.shelf === "read")
+                      .map(book => (
+                        <li key={book.id}>
+                          <Book 
+                            book={ book }
+                          />
+                        </li>
+                      ))
+                  }
                 </ol>
               </div>
             </div>
           </div>
-        <div className="open-search">
-          <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+          <div className="open-search">
+            <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+          </div>
         </div>
-      </div>
       </div>
     );
   }
