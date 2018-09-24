@@ -8,7 +8,7 @@ class BooksApp extends React.Component {
   state = {
     books: []
   }
-  
+
   /*
    * getAll()
    * returns a Promise which resolves to a JSON object containing a collection of book objects
@@ -29,9 +29,9 @@ class BooksApp extends React.Component {
     BooksAPI.update(book, shelf);
 
     BooksAPI.getAll()
-    .then((books) => {
-      this.setState({ books })
-    })
+      .then((books) => {
+        this.setState({ books })
+      })
   }
 
   render() {
@@ -39,6 +39,9 @@ class BooksApp extends React.Component {
       <div className="app">
         <MainPg 
           books = { this.state.books }
+          moveShelf = { this.moveShelf }
+        />
+        <SearchPg
           moveShelf = { this.moveShelf }
         />
       </div>
