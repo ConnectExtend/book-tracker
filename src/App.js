@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { Route } from 'react-router-dom';
 import SearchPg from './SearchPg';
 import MainPg from './MainPg';
-import * as BooksAPI from './BooksAPI'
-import './App.css'
+import * as BooksAPI from './BooksAPI';
+import './App.css';
 
 class BooksApp extends React.Component {
   state = {
@@ -37,13 +38,18 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        <MainPg 
-          books = { this.state.books }
-          moveShelf = { this.moveShelf }
-        />
-        <SearchPg
-          moveShelf = { this.moveShelf }
-        />
+        <Route exact path="/" render={() => (   
+          <MainPg 
+            books = { this.state.books }
+            moveShelf = { this.moveShelf }
+          />
+        )} />
+        <Route path="/search" render={() => (   
+          <SearchPg
+            moveShelf = { this.moveShelf }
+            books = { this.state.books }
+          />
+        )} />
       </div>
     )
   }

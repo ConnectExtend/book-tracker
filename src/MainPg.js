@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Book from './Book';
 
 class MainPg extends Component {
@@ -20,9 +21,9 @@ class MainPg extends Component {
                       .filter(book => book.shelf === "currentlyReading")
                       .map(book => (
                         <li key={book.id}>
-                          <Book 
-                            book={ book }
-                            moveShelf={ this.props.moveShelf }
+                          <Book
+                            book={book}
+                            moveShelf={this.props.moveShelf}
                             currentShelf="currentlyReading"
                           />
                         </li>
@@ -40,9 +41,9 @@ class MainPg extends Component {
                       .filter(book => book.shelf === "wantToRead")
                       .map(book => (
                         <li key={book.id}>
-                          <Book 
-                            book={ book }
-                            moveShelf={ this.props.moveShelf }
+                          <Book
+                            book={book}
+                            moveShelf={this.props.moveShelf}
                             currentShelf="wantToRead"
                           />
                         </li>
@@ -54,15 +55,15 @@ class MainPg extends Component {
             <div className="bookshelf">
               <h2 className="bookshelf-title">Already Enjoyed</h2>
               <div className="bookshelf-books">
-              <ol className="books-grid">
+                <ol className="books-grid">
                   {
                     this.props.books
                       .filter(book => book.shelf === "read")
                       .map(book => (
                         <li key={book.id}>
-                          <Book 
-                            book={ book }
-                            moveShelf={ this.props.moveShelf }
+                          <Book
+                            book={book}
+                            moveShelf={this.props.moveShelf}
                             currentShelf="read"
                           />
                         </li>
@@ -72,9 +73,11 @@ class MainPg extends Component {
               </div>
             </div>
           </div>
-          <div className="open-search">
-            <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
-          </div>
+        </div>
+        <div className="open-search">
+          <Link
+            to="/"
+          >Add a book</Link>
         </div>
       </div>
     );
