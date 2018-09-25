@@ -3,7 +3,7 @@ html, body, .root {
 }
 
 body {
-  line-height: 1.5;
+  line-height: 1.25;
   font-size: 16px;
 }
 
@@ -24,6 +24,8 @@ body, .app {
   margin: 0;
   color: #fff;
   font-size: 3em;
+  letter-spacing: .1em;
+  word-spacing: .25em;
 }
 
 .list-books-content {
@@ -91,7 +93,7 @@ body, .app {
 .search-books-bar input {
   width: 100%;
   padding: 15px 10px;
-  font-size: 1.25em;
+  font-size: 1.4em;
   border: none;
   outline: none;
 }
@@ -140,11 +142,12 @@ body, .app {
 }
 
 .book-title {
-  margin-top: 10px;
+  margin-top: 11px;
+  margin-bottom: 3px;
 }
 
 .book-authors {
-  color: #999;
+  color: #797676;
 }
 
 .book-top {
@@ -161,7 +164,7 @@ body, .app {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #60ac5d;
+  background: #2e9b32;
   background-image: url('./icons/arrow-drop-down.svg');
   background-repeat: no-repeat;
   background-position: center;
