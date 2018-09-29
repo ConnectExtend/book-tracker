@@ -27,27 +27,38 @@ class BooksApp extends React.Component {
    * returns a Promise which resolves to a JSON object containing the response data of the POST request
   */
   moveShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf);
-
-    BooksAPI.getAll()
-      .then((books) => {
-        this.setState({ books })
+    BooksAPI.update(book, shelf)
+      .then(() => {
+        BooksAPI.getAll()
+          .then((books) => {
+            this.setState({ books })
+          })
       })
   }
+
+  // moveShelf = (book, shelf) => {
+  //   BooksAPI.update(book, shelf)
+  //   .then(() => {
+  //   BooksAPI.getAll()
+  //   .then((books) => {
+  //   this.setState({ books })
+  //   })
+  //   })
+  //   }
 
   render() {
     return (
       <div className="app">
-        <Route exact path="/" render={() => (   
-          <MainPg 
-            books = { this.state.books }
-            moveShelf = { this.moveShelf }
+        <Route exact path="/" render={() => (
+          <MainPg
+            books={this.state.books}
+            moveShelf={this.moveShelf}
           />
         )} />
-        <Route path="/search" render={() => (   
+        <Route path="/search" render={() => (
           <SearchPg
-            moveShelf = { this.moveShelf }
-            books = { this.state.books }
+            moveShelf={this.moveShelf}
+            books={this.state.books}
           />
         )} />
       </div>
