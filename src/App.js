@@ -10,11 +10,6 @@ class BooksApp extends React.Component {
     books: []
   }
 
-  /*
-   * getAll()
-   * returns a Promise which resolves to a JSON object containing a collection of book objects
-   * this collection represents the books currently in the bookshelves in your app
-  */
   componentDidMount() {
     BooksAPI.getAll()
       .then((books) => {
@@ -22,10 +17,6 @@ class BooksApp extends React.Component {
       })
   }
 
-  /*
-   * update()
-   * returns a Promise which resolves to a JSON object containing the response data of the POST request
-  */
   moveShelf = (book, shelf) => {
     BooksAPI.update(book, shelf)
       .then(() => {
@@ -35,16 +26,6 @@ class BooksApp extends React.Component {
           })
       })
   }
-
-  // moveShelf = (book, shelf) => {
-  //   BooksAPI.update(book, shelf)
-  //   .then(() => {
-  //   BooksAPI.getAll()
-  //   .then((books) => {
-  //   this.setState({ books })
-  //   })
-  //   })
-  //   }
 
   render() {
     return (
@@ -66,4 +47,4 @@ class BooksApp extends React.Component {
   }
 }
 
-export default BooksApp
+export default BooksApp;
