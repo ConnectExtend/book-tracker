@@ -4,7 +4,6 @@ import Book from './Book';
 
 class MainPg extends Component {
   render() {
-    console.log(this.props.books);
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -76,7 +75,7 @@ class MainPg extends Component {
         </div>
         <div className="open-search">
           <Link
-            to="/"
+            to="/search"
           >Add a book</Link>
         </div>
       </div>
